@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int next(int num)
+    {
+        int rem = 0, ctr = 0;
+        while(num)
+        {
+            rem = num%10;
+			ctr+=(rem*rem);
+			num = num/10;
+        }
+        return ctr;
+    }
+	bool isHappy(int n)
+	{
+        int start, end = n;
+        do
+        {
+            start = next(start);
+            end = next(next(end));
+            if(end==1)
+                return 1;
+            if(end==n)
+                return 0;
+        }while(start!=end);
+         return 0;
+
+	}
+};
