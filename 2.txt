@@ -1,5 +1,5 @@
 //to find the characters in string J , in string S, and give the count. 
-//Actual Solution : 
+//Actual Solution 
 
 class Solution {
 public:
