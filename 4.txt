@@ -1,0 +1,43 @@
+//find complement of a number 
+//eg, 5 = 101
+//complement of 5 = 010 = 2
+//therefore, compliment of 5 is 2.
+class Solution {
+public:
+    int findComplement(int num) {
+        int no = floor(log2(num) + 1);
+        return((num)^((int)(pow(2,no)-1)));
+        
+    }
+};
+
+/*
+What I've done is : eg num = 5
+find out the number of binary digits in it. 
+as 3 bits can store max (8-1), 
+3 bits can store (2^3 - 1) numbers. 
+which is, 2^no_of_binary_digits - 1. 
+
+ie. 4 bits to store 2^no_of_binary_digits
+therefore, to find the no of bits required, 
+no = floor(log2 (num) + 1).
+
+now to find the complement, 
+XOR. 
+
+00 0
+01 1
+10 1
+11 0
+
+if you XOR a number with 1's, the no gets complemented. 
+eg : 
+	101
+XOR     111
+----------------
+	010
+
+therefore, 3 bits can store max 2^3 -1 = 7 = 111 (in binary).
+therefore, XOR the num with (2^no_of_binary_digits - 1)
+
+done!
