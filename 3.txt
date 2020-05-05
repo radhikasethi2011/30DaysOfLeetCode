@@ -1,0 +1,74 @@
+//to find the characters in string J , in string S, and give the count. 
+//Actual Solution : 
+
+class Solution {
+public:
+    
+    int numJewelsInStones(string J, string S) 
+    {
+        int cnt = 0;
+        unordered_set<char> j;
+        for(char i : J)
+        {
+            j.insert(i);
+        }
+        for(char i : S)
+        {
+            if(j.count(i))
+            {
+                cnt++;
+            }
+                
+        }
+        return cnt;      
+    }
+};
+
+
+/*try 1  ------------------try 1------------------
+
+class Solution {
+public:
+    
+    int numJewelsInStones(string J, string S) {
+        
+      int num = 0;
+      for(int i = 0 ; i < S.length() ; i++)
+      {
+    	  for(int k = 0 ; k < J.length() ; k++)
+    	  {
+    		  if(S[i]==(J[k]))
+    			  num++;
+    	  }
+      }
+      return num;
+
+checked each char in S, to match with characters in J. double for, O(N^2)
+      
+---------------------try 1-----------------------*/
+
+/*---------try 2---------------------
+        unordered_set<char> j;
+        for(char i : J)
+        {
+            j.insert(i);   -> to insert elements in the set. unordered_set, as the order doesn't matter. 
+        }
+        int cnt = 0;
+        /*
+        for(auto i : S)
+        {
+            if(j.find(i)!=j.end())   -> if char i is found in the set j, it returns an interator to the element, else the iterator points to the end() of the set. 
+                cnt++;               -> therefore if j is not pointing to j.end(), we've found the character. BUT FIND() TAKES MORE TIME. 
+        }
+        */
+        for(char i : S)
+        {
+            if(j.count(i))          -> if found, .count() returns 1, else it returns 0. 
+                cnt++;
+        }
+        return cnt;
+        
+        
+    }
+};
+---------------try 2--------*/
