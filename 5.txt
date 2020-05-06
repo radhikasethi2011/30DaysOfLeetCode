@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        ios_base::sync_with_stdio(false); //to avoid the synchronization of all the C++ standard streams with their corresponding standard C streams
+        cin.tie(NULL); //the flushing of std::cout before std::cin accepts an input.
+        cout.tie(NULL);//he flushing of std::cin before std::cout displays the output
+        int arr[26]={0};
+        for(char i : s)
+        {
+            arr[i-'a']++; //eg s[0] = a. then (a = 97, therefore, 97-97 = 0), therefore, store it at index 0, and increment the value at index 0
+            
+        }
+        for(int i = 0 ; i < s.length() ; i++)
+        {    
+            if(arr[s[i]-'a']==1)//finding the s string's first chr : eg s = leetcode, s[0] = l = 108. arr[108-97] = arr[11]. if the value = 1, meaning, the letter has not occure again, return i. 
+                return i;
+        }
+        return -1;
+    }
+};/*
+const int ZERO = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    return 0;
+}();*/
