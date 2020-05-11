@@ -1,0 +1,32 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+    vector <char> r;
+    vector<char>::iterator it;
+        for(char c : ransomNote)
+        {
+            r.push_back(c);
+        }
+            
+        
+        int cnt = 0;
+        it = r.begin();
+        for(char c : magazine)
+        {
+            it = std::find(r.begin(), r.end(), c);
+            if(it!=r.end())
+            {
+                cnt++;
+                r.erase(it);
+            }
+            it++;
+        }
+    if(cnt==ransomNote.length())
+           return 1;
+    return 0;
+      //  size_t found = magazine.find(ransomNote);
+        //if(found!=string::npos)
+          //  return 1;
+        //return 0;
+    }
+};
