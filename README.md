@@ -1,7 +1,7 @@
-# 30DaysOfLeetCode
+# 30DaysOfLeetCode - May
 Competitive Programming
 
-This is the repo for the May Leetcode challenge. Consists of my solutions, as well as some notes for my reference. 
+This is the repo for the May Leetcode challenge. Consists of my solutions in CPP, as well as some notes for my reference. 
 
 
 
