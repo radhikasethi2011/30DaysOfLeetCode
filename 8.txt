@@ -1,0 +1,51 @@
+class Solution {
+public:
+    bool checkStraightLine(vector<vector<int>>& coordinates) {
+         if(coordinates.size()==2)
+         {
+             return true;
+         }
+        
+       double slope;
+        int flag = 0;
+        double x1 = coordinates[0][0];
+        double y1 = coordinates[0][1];
+        double x2 = coordinates[1][0];
+        double y2 = coordinates[1][1];
+        if(x2-x1==0.00)
+        {
+            slope = 0.00;
+            flag = 1;
+        }
+        else
+        {
+            slope = (((y2-y1)/(x2-x1))); 
+        }
+        
+        //cout<<"slope "<<slope<<endl;
+        for(int i = 2 ; i < coordinates.size() ; i++)
+        {
+            double xx1 = coordinates[i][0];
+            double yy1 = coordinates[i][1];
+            double slope1 = -1;
+            if(flag==1)
+            {
+                if(xx1==x1)
+                    slope1 = 0.00;
+                else
+                    return false;
+            }
+            else
+               slope1 = (((yy1-y1)/(xx1-x1)));
+            
+            // cout<<slope1;
+            if(slope1!=slope)
+                return false;
+            
+        }
+       return true;
+        
+        
+        
+    }
+};
