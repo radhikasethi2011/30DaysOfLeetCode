@@ -1,0 +1,30 @@
+//Question - https://leetcode.com/explore/featured/card/august-leetcoding-challenge/549/week-1-august-1st-august-7th/3409/
+
+
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+        
+        if(word[0]>64 && word[0]<91)
+        {
+            int flag = 0;
+            for(auto i : word)
+                if(i<97) flag++;     
+            
+            if(flag==1 || flag==word.length()) return true;
+                return false;
+                
+        }
+        else
+        {
+            for(auto i : word)
+            {
+                if(i<97)
+                    return false;
+            }
+        }
+        
+        return true;
+        
+    }
+};
